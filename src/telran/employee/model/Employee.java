@@ -2,14 +2,14 @@ package telran.employee.model;
 
 import java.util.Objects;
 
-public abstract class Emloyee {
+public abstract class Employee {
     protected static double minWage = 30;
     protected final int id;
     protected String firstName;
     protected String lastName;
     protected double hours;
 
-    public Emloyee(int id, String firstName, String lastName, double hours) {
+    public Employee(int id, String firstName, String lastName, double hours) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,13 +45,12 @@ public abstract class Emloyee {
     }
 
 
-
     public static double getMinWage() {
         return minWage;
     }
 
     public static void setMinWage(double minWage) {
-        Emloyee.minWage = minWage;
+        Employee.minWage = minWage;
     }
 
     @Override
@@ -72,16 +71,9 @@ public abstract class Emloyee {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Emloyee other = (Emloyee) obj;
+        Employee other = (Employee) obj;
         return id == other.id;
     }
 
     public abstract double calcSalary();
-
-
-
-
-
-
-
 }

@@ -1,14 +1,14 @@
 package telran.employee.controller;
 
-import telran.employee.model.Emloyee;
+import telran.employee.model.Employee;
 import telran.employee.model.Manager;
 import telran.employee.model.SalesManager;
 import telran.employee.model.WageEmployee;
 
-public class EmploeeAppl {
+public class EmployeeAppl {
 
     public static void main(String[] args) {
-        Emloyee[] firm = new Emloyee[5];
+        Employee[] firm = new Employee[5];
         firm[0] = new Manager(1000, "John", "Smith", 182, 20000, 20);
         firm[1] = new WageEmployee(2000, "Mary", "Smith", 182, 40);
         firm[2] = new SalesManager(3000, "Peter", "Jackson", 182, 40000, 0.1);
@@ -19,7 +19,7 @@ public class EmploeeAppl {
         System.out.println("Total Salary: " + total);
     }
 
-    private static double totalSalary(Emloyee[] arr) {
+    private static double totalSalary(Employee[] arr) {
         double sum = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] != null) {
