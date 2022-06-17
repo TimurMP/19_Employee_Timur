@@ -74,6 +74,11 @@ class CompanyImplTest {
 
     @Test
     void averageSalary() {
+        assertEquals(11095, company.averageSalary());
+        Employee employee = new SalesManager(5000, "Peter", "Jackson", 182, 40000, 0.1);
+        company.addEmployee(employee);
+        assertEquals(9968, company.averageSalary());
+
     }
 
     @Test
