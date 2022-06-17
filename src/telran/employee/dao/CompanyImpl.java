@@ -55,7 +55,12 @@ public class CompanyImpl implements Company {
 
     @Override
     public double totalSalary() {
-        return 0;
+        double salary = 0;
+        for (int i = 0; i < size; i++) {
+            salary += employees[i].calcSalary();
+
+        }
+        return salary;
     }
 
     @Override

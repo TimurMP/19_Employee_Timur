@@ -63,6 +63,13 @@ class CompanyImplTest {
 
     @Test
     void totalSalary() {
+        double salary = company.totalSalary();
+        assertEquals(44380, salary);
+        Employee employee = new SalesManager(5000, "Peter", "Jackson", 182, 40000, 0.1);
+        company.addEmployee(employee);
+        salary = company.totalSalary();
+        assertEquals(49840, salary);
+
     }
 
     @Test
