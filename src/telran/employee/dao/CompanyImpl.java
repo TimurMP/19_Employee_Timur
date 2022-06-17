@@ -1,6 +1,7 @@
 package telran.employee.dao;
 
 import telran.employee.model.Employee;
+import telran.employee.model.SalesManager;
 
 public class CompanyImpl implements Company {
 
@@ -65,13 +66,18 @@ public class CompanyImpl implements Company {
 
     @Override
     public double averageSalary() {
-        double averageSalary = totalSalary() / size;
-        return averageSalary;
+        return totalSalary() / size;
     }
 
     @Override
     public double totalSales() {
-        return 0;
+        double totalSales = 0;
+        for (int i = 0; i < size; i++) {
+            if (employees[i] instanceof SalesManager) {
+                totalSales += ((SalesManager) employees[i]).getSalesValue();
+            }
+        }
+        return totalSales;
     }
 
     @Override
@@ -81,6 +87,8 @@ public class CompanyImpl implements Company {
 
     @Override
     public void printEmployees() {
-
+        for (int i = 0; i < size; i++) {
+            System.out.println(employees[i]);
+        }
     }
 }

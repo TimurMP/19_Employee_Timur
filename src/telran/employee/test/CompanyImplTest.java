@@ -28,7 +28,8 @@ class CompanyImplTest {
         for (int i = 0; i < firm.length; i++) {
             company.addEmployee(firm[i]);
 
-        }}
+        }
+    }
 
 
     @Test
@@ -78,19 +79,21 @@ class CompanyImplTest {
         Employee employee = new SalesManager(5000, "Peter", "Jackson", 182, 40000, 0.1);
         company.addEmployee(employee);
         assertEquals(9968, company.averageSalary());
-
     }
 
     @Test
     void totalSales() {
+        assertEquals(120000, company.totalSales());
     }
 
     @Test
     void size() {
-        assertEquals(4,company.size());
+        assertEquals(4, company.size());
     }
 
     @Test
     void printEmployees() {
+        company.printEmployees();
+
     }
 }
