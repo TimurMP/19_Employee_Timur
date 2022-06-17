@@ -28,12 +28,11 @@ public class CompanyImpl implements Company {
     @Override
     public Employee removeEmployee(int id) {
         for (int i = 0; i < size; i++) {
-            if (id == employees[i].getId()){
+            if (id == employees[i].getId()) {
                 Employee employee = employees[i];
-                employees[i] = employees[size-1];
-                employees[size-1] = null;
-                size --;
-
+                employees[i] = employees[size - 1];
+                employees[size - 1] = null;
+                size--;
                 return employee;
             }
 
