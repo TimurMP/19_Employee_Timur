@@ -36,7 +36,6 @@ class CompanyImplTest {
         assertFalse(company.addEmployee(firm[3]));
         Employee employee = new SalesManager(5000, "Peter", "Jackson", 182, 40000, 0.1);
         assertTrue(company.addEmployee(employee));
-        System.out.println(company);
         assertEquals(5, company.size());
         employee = new SalesManager(6000, "Peter", "Jackson", 182, 40000, 0.1);
         assertFalse(company.addEmployee(employee));
@@ -49,6 +48,10 @@ class CompanyImplTest {
 
     @Test
     void findEmployee() {
+        Employee employee = company.findEmployee(1000);
+        System.out.println(employee);
+        assertEquals(firm[0], employee);
+        assertNull(company.findEmployee(0));
     }
 
     @Test

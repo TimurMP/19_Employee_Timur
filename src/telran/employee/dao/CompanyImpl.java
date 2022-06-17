@@ -13,9 +13,16 @@ public class CompanyImpl implements Company {
 
     @Override
     public boolean addEmployee(Employee employee) {
+        if (employees.length == size) {
+            return false;
+        }
+        if (employee.equals(findEmployee(employee.getId()))){
+            return false;
+        }
 
+        employees[size] = employee;
         size++;
-        return false;
+        return true;
     }
 
     @Override
@@ -25,6 +32,14 @@ public class CompanyImpl implements Company {
 
     @Override
     public Employee findEmployee(int id) {
+        if (id <= 0){
+            return null;
+        }
+        for (int i = 0; i < size; i++) {
+            if (id == employees[i].getId()) {
+                return employees[i];
+            }
+        }
         return null;
     }
 
@@ -45,7 +60,6 @@ public class CompanyImpl implements Company {
 
     @Override
     public int size() {
-        System.out.println(size);
         return size;
     }
 
