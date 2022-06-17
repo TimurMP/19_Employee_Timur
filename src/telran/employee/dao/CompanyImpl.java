@@ -16,7 +16,7 @@ public class CompanyImpl implements Company {
         if (employees.length == size) {
             return false;
         }
-        if (employee.equals(findEmployee(employee.getId()))){
+        if (employee.equals(findEmployee(employee.getId()))) {
             return false;
         }
 
@@ -27,12 +27,23 @@ public class CompanyImpl implements Company {
 
     @Override
     public Employee removeEmployee(int id) {
+        for (int i = 0; i < size; i++) {
+            if (id == employees[i].getId()){
+                Employee employee = employees[i];
+                employees[i] = employees[size-1];
+                employees[size-1] = null;
+                size --;
+
+                return employee;
+            }
+
+        }
         return null;
     }
 
     @Override
     public Employee findEmployee(int id) {
-        if (id <= 0){
+        if (id <= 0) {
             return null;
         }
         for (int i = 0; i < size; i++) {

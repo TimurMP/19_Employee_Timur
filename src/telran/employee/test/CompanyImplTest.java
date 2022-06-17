@@ -44,14 +44,21 @@ class CompanyImplTest {
 
     @Test
     void removeEmployee() {
+        assertNull(company.removeEmployee(5000));
+        company.removeEmployee(2000);
+        assertEquals(3, company.size());
+        assertNull(company.findEmployee(2000));
+
+//        assertEquals(4000, firm[1].getId());
     }
 
     @Test
     void findEmployee() {
         Employee employee = company.findEmployee(1000);
-        System.out.println(employee);
         assertEquals(firm[0], employee);
         assertNull(company.findEmployee(0));
+        assertNull(company.findEmployee(5000));
+
     }
 
     @Test
